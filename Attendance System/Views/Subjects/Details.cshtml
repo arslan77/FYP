@@ -1,0 +1,42 @@
+﻿@model Attendance_System.Models.Subject
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Subject</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.theoryHours)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.theoryHours)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.labHours)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.labHours)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.courseCode }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

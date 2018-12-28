@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Attendance_System.Models.Teacher_Course_Allocation>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.isCurrent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Class.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Subject.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Teacher.name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.isCurrent)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Class.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Subject.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Teacher.name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,94 @@
+﻿@model Attendance_System.Models.Student
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Student</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.fullName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fullName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fatherName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fatherName)
+        </dd>
+        @if (Model.guardianID == null)
+        {
+            <dt>
+                @Html.DisplayNameFor(model => model.guardianID)
+            </dt>
+            <dd>
+                <input type="button" value="Insert Guardian Detail" onclick="location.href='@Url.Action("Create", "Guardians")?rollNo=@Model.rollNo'" />
+
+
+            </dd>
+
+        }
+        else
+        {
+
+            <dt>
+                @Html.DisplayNameFor(model => model.guardianID)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Guardian.guardianName)
+            </dd>
+
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Guardian.relationship)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Guardian.relationship)
+            </dd>
+        }
+
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.Session.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Session.name)
+        </dd>
+
+       @if (Model.username == null)
+       {
+        <dt>
+            @Html.DisplayNameFor(model => model.Userinfo.username)
+        </dt><dd>
+    @Html.ActionLink("Create User Account", "AddUserAccount", new { rollNo = Model.rollNo })
+</dd>
+       }
+       else
+       {
+<dt>
+            @Html.DisplayNameFor(model => model.Userinfo.username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Userinfo.username)
+        </dd>
+       }
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.rollNo }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

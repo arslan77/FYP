@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Attendance_System.Models.Student>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.firstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fatherName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.guardianCNIC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Session.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Userinfo.username)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.firstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fatherName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.guardianCNIC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Session.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Userinfo.username)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.rollNo }) |
+            @Html.ActionLink("Details", "Details", new { id=item.rollNo }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.rollNo })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Attendance_System.Models.Teacher>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-striped table-bordered" id="mydata">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Userinfo.username)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Userinfo.username)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.teacherID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.teacherID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.teacherID })
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/datatable")
+    <script>
+        $(document).ready(function () {
+            $('#mydata').DataTable();
+        });
+    </script>
+}

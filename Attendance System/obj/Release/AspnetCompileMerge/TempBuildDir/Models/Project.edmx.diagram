@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="cecce871e8c14fbdb778cbf3dee2de9a" Name="Diagram1">
+        <EntityTypeShape EntityType="ProjectModel.Attendance" Width="1.5" PointX="12" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectModel.Class" Width="1.5" PointX="9.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectModel.Department" Width="1.5" PointX="0.75" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectModel.Dicipline" Width="1.5" PointX="3" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectModel.Section" Width="1.5" PointX="7.5" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectModel.Session" Width="1.5" PointX="5.25" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectModel.Student" Width="1.5" PointX="12" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectModel.Subject" Width="1.5" PointX="9.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectModel.Teacher" Width="1.5" PointX="9.75" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectModel.Teacher_Course_Allocation" Width="1.5" PointX="12" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectModel.Userinfo" Width="1.5" PointX="9.75" PointY="4.25" IsExpanded="true" />
+        <AssociationConnector Association="ProjectModel.FK_Attendance_Class" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectModel.FK_Attendance_Student" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectModel.FK_Class_Section" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectModel.FK_Class_Session" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectModel.FK_Teacher_Course_Allocation_Class" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectModel.FK_Dicipline_Department" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectModel.FK_Session_Dicipline" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectModel.FK_Section_Session" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectModel.FK_Student_Session" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectModel.FK_Student_Userinfo" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectModel.FK_Teacher_Course_Allocation_Subject" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectModel.FK_Teacher_Course_Allocation_Teacher" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectModel.FK_Teacher_Userinfo" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectModel.Student_Allocation" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

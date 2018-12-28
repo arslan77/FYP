@@ -1,0 +1,9 @@
+﻿
+@model AssignedStudentData
+@using Attendance_System.ViewModels
+
+<fieldset class="checkbox-inline" >
+    @Html.HiddenFor(model => model.rollno)
+    @Html.CheckBoxFor(model => model.Assigned)
+    @Html.DisplayFor(model => model.full_name)
+</fieldset>

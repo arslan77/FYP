@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ProjectModelStoreContainer" CdmEntityContainer="ProjectEntities">
+    <EntitySetMapping Name="Attendances">
+      <EntityTypeMapping TypeName="IsTypeOf(ProjectModel.Attendance)">
+        <MappingFragment StoreEntitySet="Attendances">
+          <ScalarProperty Name="classID" ColumnName="classID" />
+          <ScalarProperty Name="rollNo" ColumnName="rollNo" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="teacherID" ColumnName="teacherID" />
+          <ScalarProperty Name="courseCode" ColumnName="courseCode" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Classes">
+      <EntityTypeMapping TypeName="IsTypeOf(ProjectModel.Class)">
+        <MappingFragment StoreEntitySet="Classes">
+          <ScalarProperty Name="classID" ColumnName="classID" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="sectionID" ColumnName="sectionID" />
+          <ScalarProperty Name="sessionID" ColumnName="sessionID" />
+          <ScalarProperty Name="isMorning" ColumnName="isMorning" />
+          <ScalarProperty Name="isTheory" ColumnName="isTheory" />
+          <ScalarProperty Name="isSupply" ColumnName="isSupply" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Departments">
+      <EntityTypeMapping TypeName="IsTypeOf(ProjectModel.Department)">
+        <MappingFragment StoreEntitySet="Departments">
+          <ScalarProperty Name="deptID" ColumnName="deptID" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="location" ColumnName="location" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Diciplines">
+      <EntityTypeMapping TypeName="IsTypeOf(ProjectModel.Dicipline)">
+        <MappingFragment StoreEntitySet="Diciplines">
+          <ScalarProperty Name="dicipID" ColumnName="dicipID" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="deptID" ColumnName="deptID" />
+          <ScalarProperty Name="totalSemester" ColumnName="totalSemester" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Guardians">
+      <EntityTypeMapping TypeName="IsTypeOf(ProjectModel.Guardian)">
+        <MappingFragment StoreEntitySet="Guardians">
+          <ScalarProperty Name="guardianID" ColumnName="guardianID" />
+          <ScalarProperty Name="guardianName" ColumnName="guardianName" />
+          <ScalarProperty Name="relationship" ColumnName="relationship" />
+          <ScalarProperty Name="mobileNumber" ColumnName="mobileNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sections">
+      <EntityTypeMapping TypeName="IsTypeOf(ProjectModel.Section)">
+        <MappingFragment StoreEntitySet="Sections">
+          <ScalarProperty Name="sectionID" ColumnName="sectionID" />
+          <ScalarProperty Name="sessionID" ColumnName="sessionID" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sessions">
+      <EntityTypeMapping TypeName="IsTypeOf(ProjectModel.Session)">
+        <MappingFragment StoreEntitySet="Sessions">
+          <ScalarProperty Name="sessionID" ColumnName="sessionID" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="dicipID" ColumnName="dicipID" />
+          <ScalarProperty Name="year" ColumnName="year" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Students">
+      <EntityTypeMapping TypeName="IsTypeOf(ProjectModel.Student)">
+        <MappingFragment StoreEntitySet="Students">
+          <ScalarProperty Name="rollNo" ColumnName="rollNo" />
+          <ScalarProperty Name="sessionID" ColumnName="sessionID" />
+          <ScalarProperty Name="fatherName" ColumnName="fatherName" />
+          <ScalarProperty Name="fullName" ColumnName="fullName" />
+          <ScalarProperty Name="guardianID" ColumnName="guardianID" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="username" ColumnName="username" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Subjects">
+      <EntityTypeMapping TypeName="IsTypeOf(ProjectModel.Subject)">
+        <MappingFragment StoreEntitySet="Subjects">
+          <ScalarProperty Name="courseCode" ColumnName="courseCode" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="theoryHours" ColumnName="theoryHours" />
+          <ScalarProperty Name="labHours" ColumnName="labHours" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="IsTypeOf(ProjectModel.sysdiagram)">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Teachers">
+      <EntityTypeMapping TypeName="IsTypeOf(ProjectModel.Teacher)">
+        <MappingFragment StoreEntitySet="Teachers">
+          <ScalarProperty Name="teacherID" ColumnName="teacherID" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="username" ColumnName="username" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Teacher_Course_Allocation">
+      <EntityTypeMapping TypeName="IsTypeOf(ProjectModel.Teacher_Course_Allocation)">
+        <MappingFragment StoreEntitySet="Teacher_Course_Allocation">
+          <ScalarProperty Name="teacherID" ColumnName="teacherID" />
+          <ScalarProperty Name="classID" ColumnName="classID" />
+          <ScalarProperty Name="courseCode" ColumnName="courseCode" />
+          <ScalarProperty Name="isCurrent" ColumnName="isCurrent" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Userinfoes">
+      <EntityTypeMapping TypeName="IsTypeOf(ProjectModel.Userinfo)">
+        <MappingFragment StoreEntitySet="Userinfoes">
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="passwordHash" ColumnName="passwordHash" />
+          <ScalarProperty Name="role" ColumnName="role" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="token" ColumnName="token" />
+          <ScalarProperty Name="imagePath" ColumnName="imagePath" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Student_Allocation" TypeName="ProjectModel.Student_Allocation" StoreEntitySet="Student_Allocation">
+      <EndProperty Name="Class">
+        <ScalarProperty Name="classID" ColumnName="Classes_classID" />
+      </EndProperty>
+      <EndProperty Name="Student">
+        <ScalarProperty Name="rollNo" ColumnName="Students_rollNo" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

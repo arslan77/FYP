@@ -1,0 +1,72 @@
+﻿@model Attendance_System.Models.Class
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Class</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.isMorning)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.isMorning)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.isTheory)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.isTheory)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.isSupply)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.isSupply)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Section.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Section.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Session.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Session.name)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

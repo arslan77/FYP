@@ -1,0 +1,78 @@
+﻿@model IEnumerable<Attendance_System.ViewModels.SubjectClassDetail>
+
+@{
+    ViewBag.Title = "Student";
+}
+
+<h2>Student</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-striped table-bordered" id="mydata">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.className)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.courseName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.teacherName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.isTheory)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.presentPercentage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.abscentPercentage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.totalAttendace)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.className)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.courseName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.teacherName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.isTheory)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.presentPercentage)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.abscentPercentage)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.totalAttendace)
+                </td>
+                <td></td>
+            </tr>
+        }
+    </tbody>
+</table>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/datatable")
+    <script>
+        $(document).ready(function () {
+            $('#mydata').DataTable();
+        });
+    </script>
+}

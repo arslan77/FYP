@@ -1,0 +1,79 @@
+﻿@using Attendance_System.Utility
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Attendance System</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Attendance System", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    @if (AccountManager.IsUserInRole("admin"))
+                    {
+                        <li>@Html.ActionLink("My Subject", "teacher", "SubjectClassDetail")</li>
+                        <li>@Html.ActionLink("Students", "index", "Students")</li>
+                        <li>@Html.ActionLink("Classes", "index", "Classes")</li>
+                        <li>@Html.ActionLink("Subjects", "index", "Subjects")</li>
+                        <li>@Html.ActionLink("Teachers", "index", "Teachers")</li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                Institute Data  
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                
+                                <li>@Html.ActionLink("Session", "index", "Sessions")</li>
+                                    
+                                <li>@Html.ActionLink("Program", "index", "Diciplines")</li>
+                                <li>@Html.ActionLink("Assign Teacher to Course", "index", "Teacher_Course_Allocation")</li>
+                            </ul>
+
+                        </li>
+
+
+
+                    }
+                    @if (AccountManager.IsUserInRole("teacher"))
+                    {
+
+                        <li>@Html.ActionLink("My Subject", "teacher", "SubjectClassDetail")</li>
+                    }
+                    @if (AccountManager.IsUserInRole("student"))
+                    {
+                        <li>@Html.ActionLink("My Classes", "student", "SubjectClassDetail")</li>
+                    }
+                </ul>
+                @Html.Partial("_LoginPartial");
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - <div style="color:aliceblue">Arslan Arshad</div></p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/angular")
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

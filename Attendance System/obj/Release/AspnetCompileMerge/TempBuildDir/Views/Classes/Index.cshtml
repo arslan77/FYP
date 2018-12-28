@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Attendance_System.Models.Class>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.isMorning)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.isTheory)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.isSupply)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Section.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Session.name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.isMorning)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.isTheory)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.isSupply)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Section.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Session.name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.classID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.classID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.classID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,18 @@
+﻿@section JSPartial
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#isSupply").click(function () {
+                alert("Clicked");
+                if (document.getElementById("isSupply").checked == true) {
+                    alert("Clicked");
+                    document.getElementById("session").disabled = true;
+                }
+                else {
+
+                    document.getElementById("session").disabled = false;
+                }
+            })
+        });
+</script>
+}

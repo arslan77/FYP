@@ -1,0 +1,86 @@
+﻿@model IEnumerable<Attendance_System.Models.Class>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", null, new { @class="btn btn-primary"})
+</p>
+<table class="table table-striped table-bordered" id="mydata">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.isMorning)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.isTheory)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.isSupply)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Section.name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Session.name)
+            </th>
+            <th>
+                @Html.DisplayName("Total Student")
+            </th>
+
+
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.isMorning)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.isTheory)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.isSupply)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Section.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Session.name)
+                </td>
+                <td>
+                    @Attendance_System.Utility.MyHtmlHelper.getTotalStudentInClass(item.classID)
+
+                </td>
+                <td>
+                    @Html.ActionLink("Add Students", "AddStudents", new { id = item.classID }) |
+                    @Html.ActionLink("Edit", "Edit", new { id = item.classID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.classID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.classID })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/datatable")
+    <script>
+        $(document).ready(function () {
+            $('#mydata').DataTable();
+        });
+    </script>
+}

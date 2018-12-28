@@ -1,0 +1,431 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ProjectModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ProjectModelStoreContainer">
+    <EntitySet Name="Attendances" EntityType="ProjectModel.Store.Attendances" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Classes" EntityType="ProjectModel.Store.Classes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Departments" EntityType="ProjectModel.Store.Departments" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Diciplines" EntityType="ProjectModel.Store.Diciplines" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Guardians" EntityType="ProjectModel.Store.Guardians" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Sections" EntityType="ProjectModel.Store.Sections" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Sessions" EntityType="ProjectModel.Store.Sessions" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Students" EntityType="ProjectModel.Store.Students" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Subjects" EntityType="ProjectModel.Store.Subjects" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="sysdiagrams" EntityType="ProjectModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Teachers" EntityType="ProjectModel.Store.Teachers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Teacher_Course_Allocation" EntityType="ProjectModel.Store.Teacher_Course_Allocation" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Userinfoes" EntityType="ProjectModel.Store.Userinfoes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Student_Allocation" EntityType="ProjectModel.Store.Student_Allocation" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_Attendance_Class" Association="ProjectModel.Store.FK_Attendance_Class">
+      <End Role="Class" EntitySet="Classes" />
+      <End Role="Attendance" EntitySet="Attendances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Attendance_Student" Association="ProjectModel.Store.FK_Attendance_Student">
+      <End Role="Student" EntitySet="Students" />
+      <End Role="Attendance" EntitySet="Attendances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Attendance_Subject" Association="ProjectModel.Store.FK_Attendance_Subject">
+      <End Role="Subject" EntitySet="Subjects" />
+      <End Role="Attendance" EntitySet="Attendances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Attendance_Teacher" Association="ProjectModel.Store.FK_Attendance_Teacher">
+      <End Role="Teacher" EntitySet="Teachers" />
+      <End Role="Attendance" EntitySet="Attendances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Class_Section" Association="ProjectModel.Store.FK_Class_Section">
+      <End Role="Section" EntitySet="Sections" />
+      <End Role="Class" EntitySet="Classes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Class_Session" Association="ProjectModel.Store.FK_Class_Session">
+      <End Role="Session" EntitySet="Sessions" />
+      <End Role="Class" EntitySet="Classes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Teacher_Course_Allocation_Class" Association="ProjectModel.Store.FK_Teacher_Course_Allocation_Class">
+      <End Role="Class" EntitySet="Classes" />
+      <End Role="Teacher_Course_Allocation" EntitySet="Teacher_Course_Allocation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Dicipline_Department" Association="ProjectModel.Store.FK_Dicipline_Department">
+      <End Role="Department" EntitySet="Departments" />
+      <End Role="Dicipline" EntitySet="Diciplines" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Session_Dicipline" Association="ProjectModel.Store.FK_Session_Dicipline">
+      <End Role="Dicipline" EntitySet="Diciplines" />
+      <End Role="Session" EntitySet="Sessions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Student_Guardian" Association="ProjectModel.Store.FK_Student_Guardian">
+      <End Role="Guardian" EntitySet="Guardians" />
+      <End Role="Student" EntitySet="Students" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Student_Session" Association="ProjectModel.Store.FK_Student_Session">
+      <End Role="Session" EntitySet="Sessions" />
+      <End Role="Student" EntitySet="Students" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Student_Userinfo" Association="ProjectModel.Store.FK_Student_Userinfo">
+      <End Role="Userinfo" EntitySet="Userinfoes" />
+      <End Role="Student" EntitySet="Students" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Teacher_Course_Allocation_Subject" Association="ProjectModel.Store.FK_Teacher_Course_Allocation_Subject">
+      <End Role="Subject" EntitySet="Subjects" />
+      <End Role="Teacher_Course_Allocation" EntitySet="Teacher_Course_Allocation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Teacher_Course_Allocation_Teacher" Association="ProjectModel.Store.FK_Teacher_Course_Allocation_Teacher">
+      <End Role="Teacher" EntitySet="Teachers" />
+      <End Role="Teacher_Course_Allocation" EntitySet="Teacher_Course_Allocation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Student_Allocation_Class" Association="ProjectModel.Store.FK_Student_Allocation_Class">
+      <End Role="Class" EntitySet="Classes" />
+      <End Role="Student_Allocation" EntitySet="Student_Allocation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Student_Allocation_Student" Association="ProjectModel.Store.FK_Student_Allocation_Student">
+      <End Role="Student" EntitySet="Students" />
+      <End Role="Student_Allocation" EntitySet="Student_Allocation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Teacher_Userinfo" Association="ProjectModel.Store.FK_Teacher_Userinfo">
+      <End Role="Userinfo" EntitySet="Userinfoes" />
+      <End Role="Teacher" EntitySet="Teachers" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Attendances">
+    <Key>
+      <PropertyRef Name="classID" />
+      <PropertyRef Name="rollNo" />
+      <PropertyRef Name="date" />
+      <PropertyRef Name="teacherID" />
+      <PropertyRef Name="courseCode" />
+    </Key>
+    <Property Name="classID" Type="int" Nullable="false" />
+    <Property Name="rollNo" Type="varchar" Nullable="false" MaxLength="30" />
+    <Property Name="status" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="date" Type="datetime" Nullable="false" />
+    <Property Name="teacherID" Type="int" Nullable="false" />
+    <Property Name="courseCode" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Classes">
+    <Key>
+      <PropertyRef Name="classID" />
+    </Key>
+    <Property Name="classID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="sectionID" Type="int" Nullable="true" />
+    <Property Name="sessionID" Type="int" Nullable="false" />
+    <Property Name="isMorning" Type="bit" Nullable="false" />
+    <Property Name="isTheory" Type="bit" Nullable="false" />
+    <Property Name="isSupply" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Departments">
+    <Key>
+      <PropertyRef Name="deptID" />
+    </Key>
+    <Property Name="deptID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="location" Type="varchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Diciplines">
+    <Key>
+      <PropertyRef Name="dicipID" />
+    </Key>
+    <Property Name="dicipID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="deptID" Type="int" Nullable="false" />
+    <Property Name="totalSemester" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Guardians">
+    <Key>
+      <PropertyRef Name="guardianID" />
+    </Key>
+    <Property Name="guardianID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="guardianName" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="relationship" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="mobileNumber" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Sections">
+    <Key>
+      <PropertyRef Name="sectionID" />
+    </Key>
+    <Property Name="sectionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sessionID" Type="int" Nullable="false" />
+    <Property Name="name" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Sessions">
+    <Key>
+      <PropertyRef Name="sessionID" />
+    </Key>
+    <Property Name="sessionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="dicipID" Type="int" Nullable="false" />
+    <Property Name="year" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Students">
+    <Key>
+      <PropertyRef Name="rollNo" />
+    </Key>
+    <Property Name="rollNo" Type="varchar" Nullable="false" MaxLength="30" />
+    <Property Name="sessionID" Type="int" Nullable="false" />
+    <Property Name="fatherName" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="fullName" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="guardianID" Type="int" Nullable="true" />
+    <Property Name="gender" Type="varchar" Nullable="false" MaxLength="10" />
+    <Property Name="username" Type="varchar" Nullable="true" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Subjects">
+    <Key>
+      <PropertyRef Name="courseCode" />
+    </Key>
+    <Property Name="courseCode" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="name" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="theoryHours" Type="int" Nullable="false" />
+    <Property Name="labHours" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" Nullable="true" />
+    <Property Name="definition" Type="varbinary(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Teachers">
+    <Key>
+      <PropertyRef Name="teacherID" />
+    </Key>
+    <Property Name="teacherID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="email" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="username" Type="varchar" Nullable="true" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Teacher_Course_Allocation">
+    <Key>
+      <PropertyRef Name="teacherID" />
+      <PropertyRef Name="classID" />
+      <PropertyRef Name="courseCode" />
+    </Key>
+    <Property Name="teacherID" Type="int" Nullable="false" />
+    <Property Name="classID" Type="int" Nullable="false" />
+    <Property Name="courseCode" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="isCurrent" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Userinfoes">
+    <Key>
+      <PropertyRef Name="username" />
+    </Key>
+    <Property Name="username" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="passwordHash" Type="nvarchar" Nullable="false" MaxLength="120" />
+    <Property Name="role" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="email" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="token" Type="varchar" Nullable="false" MaxLength="150" />
+    <Property Name="imagePath" Type="varchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Student_Allocation">
+    <Key>
+      <PropertyRef Name="Classes_classID" />
+      <PropertyRef Name="Students_rollNo" />
+    </Key>
+    <Property Name="Classes_classID" Type="int" Nullable="false" />
+    <Property Name="Students_rollNo" Type="varchar" Nullable="false" MaxLength="30" />
+  </EntityType>
+  <Association Name="FK_Attendance_Class">
+    <End Role="Class" Type="ProjectModel.Store.Classes" Multiplicity="1" />
+    <End Role="Attendance" Type="ProjectModel.Store.Attendances" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Class">
+        <PropertyRef Name="classID" />
+      </Principal>
+      <Dependent Role="Attendance">
+        <PropertyRef Name="classID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Attendance_Student">
+    <End Role="Student" Type="ProjectModel.Store.Students" Multiplicity="1" />
+    <End Role="Attendance" Type="ProjectModel.Store.Attendances" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="rollNo" />
+      </Principal>
+      <Dependent Role="Attendance">
+        <PropertyRef Name="rollNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Attendance_Subject">
+    <End Role="Subject" Type="ProjectModel.Store.Subjects" Multiplicity="1" />
+    <End Role="Attendance" Type="ProjectModel.Store.Attendances" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subject">
+        <PropertyRef Name="courseCode" />
+      </Principal>
+      <Dependent Role="Attendance">
+        <PropertyRef Name="courseCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Attendance_Teacher">
+    <End Role="Teacher" Type="ProjectModel.Store.Teachers" Multiplicity="1" />
+    <End Role="Attendance" Type="ProjectModel.Store.Attendances" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teacher">
+        <PropertyRef Name="teacherID" />
+      </Principal>
+      <Dependent Role="Attendance">
+        <PropertyRef Name="teacherID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Class_Section">
+    <End Role="Section" Type="ProjectModel.Store.Sections" Multiplicity="0..1" />
+    <End Role="Class" Type="ProjectModel.Store.Classes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Section">
+        <PropertyRef Name="sectionID" />
+      </Principal>
+      <Dependent Role="Class">
+        <PropertyRef Name="sectionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Class_Session">
+    <End Role="Session" Type="ProjectModel.Store.Sessions" Multiplicity="1" />
+    <End Role="Class" Type="ProjectModel.Store.Classes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Session">
+        <PropertyRef Name="sessionID" />
+      </Principal>
+      <Dependent Role="Class">
+        <PropertyRef Name="sessionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Teacher_Course_Allocation_Class">
+    <End Role="Class" Type="ProjectModel.Store.Classes" Multiplicity="1" />
+    <End Role="Teacher_Course_Allocation" Type="ProjectModel.Store.Teacher_Course_Allocation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Class">
+        <PropertyRef Name="classID" />
+      </Principal>
+      <Dependent Role="Teacher_Course_Allocation">
+        <PropertyRef Name="classID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Dicipline_Department">
+    <End Role="Department" Type="ProjectModel.Store.Departments" Multiplicity="1" />
+    <End Role="Dicipline" Type="ProjectModel.Store.Diciplines" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="deptID" />
+      </Principal>
+      <Dependent Role="Dicipline">
+        <PropertyRef Name="deptID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Session_Dicipline">
+    <End Role="Dicipline" Type="ProjectModel.Store.Diciplines" Multiplicity="1" />
+    <End Role="Session" Type="ProjectModel.Store.Sessions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dicipline">
+        <PropertyRef Name="dicipID" />
+      </Principal>
+      <Dependent Role="Session">
+        <PropertyRef Name="dicipID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Student_Guardian">
+    <End Role="Guardian" Type="ProjectModel.Store.Guardians" Multiplicity="0..1" />
+    <End Role="Student" Type="ProjectModel.Store.Students" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Guardian">
+        <PropertyRef Name="guardianID" />
+      </Principal>
+      <Dependent Role="Student">
+        <PropertyRef Name="guardianID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Student_Session">
+    <End Role="Session" Type="ProjectModel.Store.Sessions" Multiplicity="1" />
+    <End Role="Student" Type="ProjectModel.Store.Students" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Session">
+        <PropertyRef Name="sessionID" />
+      </Principal>
+      <Dependent Role="Student">
+        <PropertyRef Name="sessionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Student_Userinfo">
+    <End Role="Userinfo" Type="ProjectModel.Store.Userinfoes" Multiplicity="0..1" />
+    <End Role="Student" Type="ProjectModel.Store.Students" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Userinfo">
+        <PropertyRef Name="username" />
+      </Principal>
+      <Dependent Role="Student">
+        <PropertyRef Name="username" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Teacher_Course_Allocation_Subject">
+    <End Role="Subject" Type="ProjectModel.Store.Subjects" Multiplicity="1" />
+    <End Role="Teacher_Course_Allocation" Type="ProjectModel.Store.Teacher_Course_Allocation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subject">
+        <PropertyRef Name="courseCode" />
+      </Principal>
+      <Dependent Role="Teacher_Course_Allocation">
+        <PropertyRef Name="courseCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Teacher_Course_Allocation_Teacher">
+    <End Role="Teacher" Type="ProjectModel.Store.Teachers" Multiplicity="1" />
+    <End Role="Teacher_Course_Allocation" Type="ProjectModel.Store.Teacher_Course_Allocation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teacher">
+        <PropertyRef Name="teacherID" />
+      </Principal>
+      <Dependent Role="Teacher_Course_Allocation">
+        <PropertyRef Name="teacherID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Teacher_Userinfo">
+    <End Role="Userinfo" Type="ProjectModel.Store.Userinfoes" Multiplicity="0..1" />
+    <End Role="Teacher" Type="ProjectModel.Store.Teachers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Userinfo">
+        <PropertyRef Name="username" />
+      </Principal>
+      <Dependent Role="Teacher">
+        <PropertyRef Name="username" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Student_Allocation_Class">
+    <End Role="Class" Type="ProjectModel.Store.Classes" Multiplicity="1" />
+    <End Role="Student_Allocation" Type="ProjectModel.Store.Student_Allocation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Class">
+        <PropertyRef Name="classID" />
+      </Principal>
+      <Dependent Role="Student_Allocation">
+        <PropertyRef Name="Classes_classID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Student_Allocation_Student">
+    <End Role="Student_Allocation" Type="ProjectModel.Store.Student_Allocation" Multiplicity="*" />
+    <End Role="Student" Type="ProjectModel.Store.Students" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="rollNo" />
+      </Principal>
+      <Dependent Role="Student_Allocation">
+        <PropertyRef Name="Students_rollNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

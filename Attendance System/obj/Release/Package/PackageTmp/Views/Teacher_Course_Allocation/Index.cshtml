@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Attendance_System.Models.Teacher_Course_Allocation>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table table-striped table-bordered" id="mydata">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.isCurrent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Class.name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Subject.name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Teacher.name)
+            </th>
+            <th></th>
+        </tr>
+    </thead><tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.isCurrent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Class.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Subject.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Teacher.name)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { teacherID = item.teacherID, classID = item.classID, courseCode = item.courseCode }) |
+                @Html.ActionLink("Details", "Details", new { teacherID = item.teacherID, classID = item.classID, courseCode = item.courseCode }) |
+                @Html.ActionLink("Delete", "Delete", new { teacherID = item.teacherID, classID = item.classID, courseCode = item.courseCode })
+            </td>
+        </tr>
+    }
+</tbody>
+</table>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/datatable")
+    <script>
+        $(document).ready(function () {
+            $('#mydata').DataTable();
+        });
+    </script>
+}

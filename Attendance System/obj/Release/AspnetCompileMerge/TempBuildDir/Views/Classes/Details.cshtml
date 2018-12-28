@@ -1,0 +1,66 @@
+﻿@model Attendance_System.Models.Class
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Class</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.isMorning)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.isMorning)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.isTheory)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.isTheory)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.isSupply)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.isSupply)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Section.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Section.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Session.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Session.name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.classID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,91 @@
+﻿@model IEnumerable<Attendance_System.Models.Student>
+
+@{
+    ViewBag.Title = "AddStudents";
+}
+
+<h2>AddStudents</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Student</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+        <table class="table table-striped table-bordered" id="mydata">
+            <thead>
+                <tr>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.rollNo)
+                    </th>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.fullName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.fatherName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.sessionID)
+                    </th>
+
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.rollNo)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.fullName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.fatherName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Session.name)
+                        </td>
+                        <td>
+                            @Html.CheckBox("AssignedStudent", new { value = item.rollNo })
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+
+        </table>
+
+
+
+        @Html.Hidden("classID")
+
+
+
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Add Students" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/datatable")
+    <script>
+        $(document).ready(function () {
+            $('#mydata').DataTable();
+        });
+    </script>
+}
